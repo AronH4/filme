@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filme</title>
+    <title>Filme-Manager</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Firebase Scripts -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
+
+    <!-- Firebase Core SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
 </head>
 <body>
     <h1>Willkommen zum Filme-Manager</h1>
@@ -17,6 +18,7 @@
         <button onclick="suggestRandomMovie()">Film vorschlagen</button>
     </div>
     <div id="outputDiv"></div>
+
     <script src="script.js"></script>
 </body>
 </html>
