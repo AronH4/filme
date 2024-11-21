@@ -13,10 +13,10 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.database(app);
 
-// HTML-Elemente referenzieren
-const outputDiv = document.getElementById("output");
+// Globale Variable für das Output-Div
+const outputDiv = document.getElementById("outputDiv");
 
-// Funktion: Film eintragen
+// Button 1: Film eintragen
 function showInputField() {
     outputDiv.innerHTML = `
         <input id="movieInput" type="text" placeholder="Filmname eintragen">
@@ -26,28 +26,34 @@ function showInputField() {
 
 function addMovie() {
     const movieName = document.getElementById("movieInput").value;
-    if (movieName.trim() === "") return;
-
-    const movieRef = db.ref("movies").push();
-    movieRef.set({ name: movieName, watched: false });
-    alert(`${movieName} wurde hinzugefügt!`);
+    if (movieName.trim() === "") {
+        alert("Bitte einen Filmnamen eingeben.");
+        return;
+    }
+    const newMovieRef = db.ref("movies").push();
+    newMovieRef.set({
+        name: movieName,
+        watched: false
+    });
+    alert(`Der Film "${movieName}" wurde hinzugefügt!`);
 }
 
-// Funktion: Liste anzeigen
+// Button 2: Filmliste anzeigen
 function showMovieList() {
     db.ref("movies").once("value", (snapshot) => {
         const movies = snapshot.val();
         if (!movies) {
-            outputDiv.innerHTML = "Keine Filme eingetragen.";
+            outputDiv.innerHTML = "Keine Filme vorhanden.";
             return;
         }
 
         let html = "<ul>";
         for (const id in movies) {
             const movie = movies[id];
+            const watchedClass = movie.watched ? "style='color: green;'" : "";
             html += `
-                <li>
-                    ${movie.name} 
+                <li ${watchedClass}>
+                    ${movie.name}
                     <button onclick="markAsWatched('${id}')">Gesehen</button>
                     <button onclick="deleteMovie('${id}')">Löschen</button>
                 </li>
@@ -58,34 +64,34 @@ function showMovieList() {
     });
 }
 
-function markAsWatched(id) {
-    db.ref(`movies/${id}`).update({ watched: true });
-    alert("Film als gesehen markiert!");
+function markAsWatched(movieId) {
+    db.ref(`movies/${movieId}`).update({
+        watched: true
+    });
     showMovieList();
 }
 
-function deleteMovie(id) {
-    db.ref(`movies/${id}`).remove();
-    alert("Film gelöscht!");
+function deleteMovie(movieId) {
+    db.ref(`movies/${movieId}`).remove();
     showMovieList();
 }
 
-// Funktion: Zufallsfilm vorschlagen
-function suggestMovie() {
+// Button 3: Zufälligen Film vorschlagen
+function suggestRandomMovie() {
     db.ref("movies").once("value", (snapshot) => {
         const movies = snapshot.val();
         if (!movies) {
-            outputDiv.innerHTML = "Keine Filme zum Vorschlagen.";
+            outputDiv.innerHTML = "Keine Filme vorhanden.";
             return;
         }
 
-        const unwatched = Object.values(movies).filter(movie => !movie.watched);
-        if (unwatched.length === 0) {
-            outputDiv.innerHTML = "Alle Filme wurden angesehen!";
+        const unwatchedMovies = Object.values(movies).filter(movie => !movie.watched);
+        if (unwatchedMovies.length === 0) {
+            outputDiv.innerHTML = "Keine ungesehenen Filme vorhanden.";
             return;
         }
 
-        const randomMovie = unwatched[Math.floor(Math.random() * unwatched.length)];
-        outputDiv.innerHTML = `Vorschlag: <b>${randomMovie.name}</b>`;
+        const randomMovie = unwatchedMovies[Math.floor(Math.random() * unwatchedMovies.length)];
+        outputDiv.innerHTML = `Wie wäre es mit: <strong>${randomMovie.name}</strong>?`;
     });
 }
