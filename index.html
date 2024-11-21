@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventskalender</title>
+    <title>Filme</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
 </head>
 <body>
-    <h1>Adventskalender: Filme</h1>
-    <div id="options">
+    <h1>Willkommen zum Filme-Manager</h1>
+    <div id="buttonContainer">
         <button onclick="showInputField()">Film eintragen</button>
-        <button onclick="showMovieList()">Liste anzeigen</button>
-        <button onclick="suggestMovie()">Zufallsfilm vorschlagen</button>
+        <button onclick="showMovieList()">Filmliste anzeigen</button>
+        <button onclick="suggestRandomMovie()">Film vorschlagen</button>
     </div>
-    <div id="output"></div>
-
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"></script>
+    <div id="outputDiv"></div>
     <script src="script.js"></script>
 </body>
 </html>
