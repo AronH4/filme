@@ -54,7 +54,7 @@ function showMovieList() {
             html += `
                 <li ${watchedStyle}>
                     ${movie.name}
-                    <button onclick="markAsWatched('${id}', ${movie.watched})">${buttonText}</button>
+                    <button onclick="toggleWatched('${id}', ${movie.watched})">${buttonText}</button>
                     <button onclick="deleteMovie('${id}')">Löschen</button>
                 </li>
             `;
@@ -64,23 +64,18 @@ function showMovieList() {
     });
 }
 
-function markAsWatched(movieId, isWatched) {
-    if (isWatched) {
-        markAsUnwatched(movieId);
-    } else {
-        db.ref(`movies/${movieId}`).update({ watched: true });
-    }
-    showMovieList();
-}
-
-function markAsUnwatched(movieId) {
-    db.ref(`movies/${movieId}`).update({ watched: false });
-    showMovieList();
+// Toggle-Funktion für gesehen/ungesehen
+function toggleWatched(movieId, isWatched) {
+    // Wenn der Film als gesehen markiert ist, setze ihn auf ungesehen und umgekehrt
+    db.ref(`movies/${movieId}`).update({
+        watched: !isWatched
+    });
+    showMovieList(); // Filmliste nach Änderung neu laden
 }
 
 function deleteMovie(movieId) {
     db.ref(`movies/${movieId}`).remove();
-    showMovieList();
+    showMovieList(); // Filmliste nach Löschung neu laden
 }
 
 // Button 3: Zufälligen Film vorschlagen
