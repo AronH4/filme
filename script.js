@@ -11,10 +11,10 @@ const firebaseConfig = {
 
 // Firebase initialisieren
 const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.database(app);
+const db = firebase.database();
 
 // Globale Variable für das Output-Div
-const outputDiv = document.getElementById("outputDiv");
+let outputDiv = document.getElementById("outputDiv");
 
 // Button 1: Film eintragen
 function showInputField() {
@@ -25,17 +25,16 @@ function showInputField() {
 }
 
 function addMovie() {
-    const movieName = document.getElementById("movieInput").value;
-    if (movieName.trim() === "") {
+    const movieInput = document.getElementById("movieInput").value;
+    if (movieInput.trim() === "") {
         alert("Bitte einen Filmnamen eingeben.");
         return;
     }
-    const newMovieRef = db.ref("movies").push();
-    newMovieRef.set({
-        name: movieName,
+    db.ref("movies").push({
+        name: movieInput,
         watched: false
     });
-    alert(`Der Film "${movieName}" wurde hinzugefügt!`);
+    alert(`Der Film "${movieInput}" wurde hinzugefügt.`);
 }
 
 // Button 2: Filmliste anzeigen
@@ -50,9 +49,9 @@ function showMovieList() {
         let html = "<ul>";
         for (const id in movies) {
             const movie = movies[id];
-            const watchedClass = movie.watched ? "style='color: green;'" : "";
+            const watchedStyle = movie.watched ? "style='color: green;'" : "";
             html += `
-                <li ${watchedClass}>
+                <li ${watchedStyle}>
                     ${movie.name}
                     <button onclick="markAsWatched('${id}')">Gesehen</button>
                     <button onclick="deleteMovie('${id}')">Löschen</button>
@@ -65,9 +64,7 @@ function showMovieList() {
 }
 
 function markAsWatched(movieId) {
-    db.ref(`movies/${movieId}`).update({
-        watched: true
-    });
+    db.ref(`movies/${movieId}`).update({ watched: true });
     showMovieList();
 }
 
