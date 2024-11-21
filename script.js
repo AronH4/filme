@@ -50,10 +50,11 @@ function showMovieList() {
         for (const id in movies) {
             const movie = movies[id];
             const watchedStyle = movie.watched ? "style='color: green;'" : "";
+            const buttonText = movie.watched ? "Zurück auf ungesehen" : "Gesehen";
             html += `
                 <li ${watchedStyle}>
                     ${movie.name}
-                    <button onclick="markAsWatched('${id}')">Gesehen</button>
+                    <button onclick="markAsWatched('${id}', ${movie.watched})">${buttonText}</button>
                     <button onclick="deleteMovie('${id}')">Löschen</button>
                 </li>
             `;
@@ -63,8 +64,17 @@ function showMovieList() {
     });
 }
 
-function markAsWatched(movieId) {
-    db.ref(`movies/${movieId}`).update({ watched: true });
+function markAsWatched(movieId, isWatched) {
+    if (isWatched) {
+        markAsUnwatched(movieId);
+    } else {
+        db.ref(`movies/${movieId}`).update({ watched: true });
+    }
+    showMovieList();
+}
+
+function markAsUnwatched(movieId) {
+    db.ref(`movies/${movieId}`).update({ watched: false });
     showMovieList();
 }
 
