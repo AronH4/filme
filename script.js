@@ -32,14 +32,6 @@ function removeFixedPosition() {
     document.body.classList.remove('fixed-header-buttons-active'); // Entferne die fixierte Position
 }
 
-//ACHTUNG: AB HIER NEU
-function adjustOutputDivMargin() {
-    const headerHeight = document.querySelector("h1").offsetHeight;
-    const buttonsHeight = document.querySelector(".buttons-container").offsetHeight;
-    const totalHeight = headerHeight + buttonsHeight;
-    outputDiv.style.marginTop = `${totalHeight}px`;
-}
-
 // Funktion zum Hinzufügen eines Films
 function addMovie() {
     const movieName = document.getElementById("movieInput").value.trim();
@@ -85,9 +77,6 @@ function addMovie() {
 function showMovieList() {
  // Füge die fixierte Klasse zum Header hinzu
     document.body.classList.add('fixed-header-buttons-active'); 
-
-    //ACHTUNG NEU
-    adjustOutputDivMargin();
     
     db.ref("movies").once("value", (snapshot) => {
         const movies = snapshot.val();
