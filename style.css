@@ -181,18 +181,6 @@ ul li .movie-title {
     z-index: 1001; /* Buttons über allen anderen Inhalten */
 }
 
-/* AB HIER TESTVERSUCH BIS ABSTAND UNTERHALB DER BUTTONS
-/* Container für die Filmliste */
-.movie-list-container {
-    padding: 20px;
-    overflow-y: auto; /* Ermöglicht das Scrollen der Liste */
-    max-height: calc(100vh - 160px); /* Maximale Höhe der Liste, sodass sie nur bis zu einem bestimmten Punkt wächst */
-}
-
-/* Wenn der Header und die Buttons fixiert sind, wird der Abstand für die Filmliste angepasst */
-body.fixed-header-buttons-active .movie-list-container {
-    margin-top: 140px; /* Abstand für Header + Buttons, abhängig von ihrer Höhe */
-}
 
 /* Abstand unterhalb der Buttons */
 #outputDiv {
