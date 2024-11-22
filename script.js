@@ -85,6 +85,9 @@ function addMovie() {
 function showMovieList() {
  // Füge die fixierte Klasse zum Header hinzu
     document.body.classList.add('fixed-header-buttons-active'); 
+
+    //ACHTUNG NEU
+    adjustOutputDivMargin();
     
     db.ref("movies").once("value", (snapshot) => {
         const movies = snapshot.val();
