@@ -125,6 +125,28 @@ ul li .movie-title {
     flex-grow: 1; /* Der Titel kann sich ausdehnen, um den freien Raum zu füllen */
 }
 
+/* Container für jedes Listenelement */
+.movie-item {
+    display: flex;
+    justify-content: space-between; /* Titel links und Buttons rechts ausrichten */
+    align-items: center;
+    margin-bottom: 10px; /* Abstand zwischen den Filmen */
+    padding: 5px 0;
+}
+
+/* Filmtitel linksbündig */
+.movie-item .movie-title {
+    text-align: left; /* Sicherstellen, dass der Titel links ist */
+    flex-grow: 1; /* Damit der Titel den verfügbaren Platz einnimmt */
+}
+
+/* Die Buttons (Icons) rechtsbündig */
+.movie-item .movie-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; /* Abstand zwischen den Buttons */
+}
+
 /* Abstand unterhalb der Buttons */
 #outputDiv {
     margin-top: 60px; /* Großer Abstand zwischen Buttons und Text */
