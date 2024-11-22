@@ -100,6 +100,30 @@ button#randomButton {
     padding: 0; /* Entferne den inneren Abstand, um den Button kompakter zu machen */
     border: none; /* Entferne die Ränder, falls gewünscht */
 }
+/* Stil für die Filmliste (ul) */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Stil für jedes Listenelement (li) */
+ul li {
+    display: flex; /* Flexbox für jedes Listenelement */
+    justify-content: space-between; /* Platziere den Titel links und die Buttons rechts */
+    align-items: center; /* Vertikale Ausrichtung der Elemente */
+    margin-bottom: 10px; /* Abstand zwischen den einzelnen Filmen */
+}
+
+/* Optional: Etwas Abstand zwischen den Buttons */
+ul li button {
+    margin-left: 10px; /* Abstand zwischen den Buttons */
+}
+
+/* Verhindere, dass der Filmtitel sich ausdehnt */
+ul li .movie-title {
+    flex-grow: 1; /* Der Titel kann sich ausdehnen, um den freien Raum zu füllen */
+}
 
 /* Abstand unterhalb der Buttons */
 #outputDiv {
