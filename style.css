@@ -153,6 +153,7 @@ ul li .movie-title {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    height: 100vh;
     background-color: black; /* Schwarzer Hintergrund für den Header */
     color: white;
     padding: 20px 0;
