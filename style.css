@@ -159,9 +159,9 @@ ul li .movie-title {
     width: 100%; /* Stelle sicher, dass der Header die gesamte Breite einnimmt */
     text-align: center;
     z-index: 1000; /* Sicherstellen, dass der Header oben bleibt */
-    /*TESTVERSUCH*/
+    /*TESTVERSUCH
     box-shadow: 0px 4px 10px rgb(0, 0, 0, 0.8);
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid gray; */
 }
 
 /* Fixiere die Buttons unter dem Header */
@@ -173,6 +173,7 @@ ul li .movie-title {
     z-index: 999;
     /*TESTVERSUCH*/
     background-color: black;
+    width: 100%;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8); /* Schatten nach unten */
     border-bottom: 2px solid gray; /* Optionale graue Linie */
     /*padding: 10px;
