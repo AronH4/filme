@@ -1,33 +1,65 @@
+/* Hintergrund und Schriftfarbe der gesamten Seite */
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
+    background-color: black; /* Schwarzer Hintergrund */
+    color: white;            /* Weiße Schrift */
+    font-family: Arial, sans-serif; /* Lesbare Schriftart */
     margin: 0;
-    padding: 20px;
-    background-color: #f4f4f4;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Füllt den ganzen Bildschirm */
+    box-sizing: border-box;
 }
 
-h1 {
-    color: #333;
-}
-
+/* Allgemeiner Stil für alle Buttons */
 button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
-    font-size: 16px;
+    padding: 15px 30px;      /* Größere Buttons */
+    font-size: 18px;         /* Größere Schrift */
+    border: 2px solid white; /* Weiße Umrandung */
+    border-radius: 8px;      /* Abgerundete Ecken */
+    cursor: pointer;         /* Zeiger bei Hover */
+    margin: 10px;            /* Abstand zwischen den Buttons */
+    transition: transform 0.2s, box-shadow 0.2s; /* Animationen für Hover */
 }
 
+/* Hover-Effekte für alle Buttons */
 button:hover {
-    background-color: #45a049;
+    transform: scale(1.1); /* Vergrößert den Button leicht */
+    box-shadow: 0px 0px 10px white; /* Leichter Leuchteffekt */
 }
 
-#outputDiv {
-    margin-top: 20px;
-    padding: 20px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+/* Stil für den ersten Button (Film hinzufügen) */
+button#addMovieButton {
+    background-color: black;    /* Schwarzer Hintergrund */
+    color: lime;                /* Neongrüne Schrift */
+    border-color: lime;         /* Neongrüne Umrandung */
+}
+
+/* Stil für den zweiten Button (Filmliste anzeigen) */
+button#showListButton {
+    background-color: black;    /* Schwarzer Hintergrund */
+    color: orange;              /* Neonorange Schrift */
+    border-color: orange;       /* Neonorange Umrandung */
+}
+
+/* Stil für den dritten Button (Zufälligen Film vorschlagen) */
+button#randomButton {
+    background-color: black;    /* Schwarzer Hintergrund */
+    color: magenta;             /* Neonpink Schrift */
+    border-color: magenta;      /* Neonpink Umrandung */
+}
+
+/* Anordnung der Buttons */
+.buttons-container {
+    display: flex;
+    flex-direction: column; /* Buttons in einer Spalte */
+    align-items: center;    /* Zentriert innerhalb der Seite */
+}
+
+.buttons-row {
+    display: flex;          /* Buttons nebeneinander */
+    justify-content: center;
+    margin-bottom: 20px;    /* Abstand zur nächsten Reihe */
 }
