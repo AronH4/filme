@@ -20,7 +20,6 @@ const gifs = [
     'gifs/goldy.gif',
     'gifs/otter.gif',
     'gifs/pengu.gif',
-    'gifs/platy.gif',
     'gifs/seal.gif'
 ];
 
