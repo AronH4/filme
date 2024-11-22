@@ -20,7 +20,7 @@ let outputDiv = document.getElementById("outputDiv");
 function showInputField() {
     outputDiv.innerHTML = `
         <input id="movieInput" type="text" placeholder="Film eintragen">
-        <button onclick="addMovie()">
+        <button class="small-button" onclick="addMovie()">
         <img src="images/plus-icon.png" alt="Hinzufügen" style="width: 30px; height; 30px;">
         </button>
     `;
