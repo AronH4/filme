@@ -183,14 +183,14 @@ ul li .movie-title {
 
 /* ACHTUNG NEU */
 .movie-list-active #outputDiv ul {
-    margin-top: 300px; /* Platz für Header (50px) + Buttons (110px) */
-    padding: 0;
-    list-style-type: none; /* Entferne die Standard-Punkte der Liste */
-    max-height: calc(100vh - 210px); /* Höhe des Fensters minus Header + Buttons */
-    overflow-y: auto; /* Scrollbar aktivieren, wenn die Liste zu lang wird */
+    margin-top: 600px; /* Platz für Header (50px) + Buttons (110px) */
+    /*padding: 0; */
+    /*list-style-type: none; /* Entferne die Standard-Punkte der Liste */
+    /*max-height: calc(100vh - 210px); /* Höhe des Fensters minus Header + Buttons */
+    /*overflow-y: auto; /* Scrollbar aktivieren, wenn die Liste zu lang wird */
     display: flex;
     flex-direction: column; /* Elemente nach unten ausrichten */
-    align-items: flex-start; /* Titel linksbündig ausrichten */
+    /*align-items: flex-start; /* Titel linksbündig ausrichten */
 }
 
 /* Abstand unterhalb der Buttons */
