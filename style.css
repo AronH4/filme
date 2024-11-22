@@ -217,3 +217,7 @@ ul li .movie-title {
     text-align: center; /* Text zentrieren */
     z-index: 1;
 }
+
+.bottom-section {
+    margin-top: auto;
+}
