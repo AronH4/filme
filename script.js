@@ -32,6 +32,9 @@ function showInputField() {
     document.body.classList.remove('movie-list-active');
     
     removeFixedPosition();
+
+    document.getElementById("gifContainer").innerHTML = ''; // Entferne das GIF
+    
     outputDiv.innerHTML = `
         <input id="movieInput" type="text" placeholder="Film eintragen">
         <button class="small-button" onclick="addMovie()">
@@ -90,6 +93,8 @@ function addMovie() {
 function showMovieList() {
  // Füge die fixierte Klasse zum Header hinzu
     document.body.classList.add('fixed-header-buttons-active', 'movie-list-active'); 
+
+    document.getElementById("gifContainer").innerHTML = ''; // Entferne das GIF
     
     db.ref("movies").once("value", (snapshot) => {
         const movies = snapshot.val();
