@@ -71,8 +71,6 @@ function addMovie() {
 function showMovieList() {
  // Füge die fixierte Klasse zum Header hinzu
     document.body.classList.add('fixed-header-buttons-active'); 
-    document.querySelector('h1').classList.add('fixed-header');
-    document.querySelector('.buttons-container').classList.add('fixed-header-buttons');
     
     db.ref("movies").once("value", (snapshot) => {
         const movies = snapshot.val();
@@ -167,9 +165,6 @@ function showMovieList() {
 function hideMovieList() {
     // Entferne die fixierte Klasse vom Header
     document.body.classList.remove('fixed-header-buttons-active');
-    document.querySelector('h1').classList.remove('fixed-header');
-    document.querySelector('.buttons-container').classList.remove('fixed-header-buttons');
-
     outputDiv.innerHTML = ''; // Optional: Löscht den Inhalt der Filmliste, wenn du zurück gehst
 }
 
