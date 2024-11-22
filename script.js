@@ -69,6 +69,10 @@ function addMovie() {
 
 // Button 2: Filmliste anzeigen
 function showMovieList() {
+ // Füge die fixierte Klasse zum Header hinzu
+    document.body.classList.add('fixed-header-active'); 
+    document.querySelector('h1').classList.add('fixed-header');
+    
     db.ref("movies").once("value", (snapshot) => {
         const movies = snapshot.val();
         if (!movies) {
@@ -158,6 +162,14 @@ function showMovieList() {
     });
 }
 
+// Funktion zum Verlassen der Filmliste (z.B. zurück zum Start)
+function hideMovieList() {
+    // Entferne die fixierte Klasse vom Header
+    document.body.classList.remove('fixed-header-active');
+    document.querySelector('h1').classList.remove('fixed-header');
+
+    outputDiv.innerHTML = ''; // Optional: Löscht den Inhalt der Filmliste, wenn du zurück gehst
+}
 
 // Toggle-Funktion für gesehen/ungesehen
 function toggleWatched(movieId, isWatched) {
