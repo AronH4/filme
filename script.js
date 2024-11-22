@@ -140,7 +140,7 @@ function showMovieList() {
             const eyeIcon = "eye-slash-icon.png";
             html += `
                 <li class="movie-item">
-                    <div class="movie-title" style="color: green; text-decoration: line-through;">
+                    <div class="movie-title" style="color: red; text-decoration: line-through;">
                         ${movie.name}
                     </div>
                     <div class="movie-buttons">
