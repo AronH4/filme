@@ -190,7 +190,7 @@ ul li .movie-title {
 /* Stil für die Buttons in der fixierten Position */
 .fixed-header-buttons-active button {
     position: relative;
-    z-index: 1000; /* Buttons über allen anderen Inhalten */
+    z-index: 1001; /* Buttons über allen anderen Inhalten */
 }
 
 .movie-list-active #outputDiv ul {
@@ -208,4 +208,5 @@ ul li .movie-title {
 #outputDiv {
     margin-top: 60px; /* Großer Abstand zwischen Buttons und Text */
     text-align: center; /* Text zentrieren */
+    z-index: 1;
 }
