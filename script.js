@@ -79,20 +79,14 @@ function showMovieList() {
         // Arrays für ungesehene und gesehene Filme
         let unwatchedMovies = [];
         let watchedMovies = [];
-        
-        // Zähler für ungesehene und gesehene Filme
-        let unwatchedCount = 0;
-        let watchedCount = 0;
 
-        // Filme in die jeweiligen Arrays aufteilen und Zähler aktualisieren
+        // Filme in die jeweiligen Arrays aufteilen
         for (const id in movies) {
             const movie = movies[id];
             if (movie.watched) {
                 watchedMovies.push({ id, ...movie });
-                watchedCount++; // Zähler für gesehene Filme
             } else {
                 unwatchedMovies.push({ id, ...movie });
-                unwatchedCount++; // Zähler für ungesehene Filme
             }
         }
 
@@ -100,9 +94,9 @@ function showMovieList() {
         unwatchedMovies.sort((a, b) => a.name.localeCompare(b.name)); // Ungesehene Filme sortieren
         watchedMovies.sort((a, b) => a.name.localeCompare(b.name)); // Gesehene Filme sortieren
 
-        // HTML für die Filmliste zusammenbauen
+        // HTML fü rdie Filmliste zusammenbauen
         let html = "<ul>";
-        
+
         // Ungesehene Filme anzeigen
         for (const movie of unwatchedMovies) {
             const eyeIcon = "eye-icon.png";
@@ -142,8 +136,8 @@ function showMovieList() {
                 </li>
             `;
         }
-
-        // Trennstrich und Counter hinzufügen
+        
+   // Trennstrich und Counter hinzufügen
         html += `
             </ul>
             <hr>
