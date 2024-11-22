@@ -14,7 +14,8 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
 // Globale Variable für das Output-Div
-let outputDiv = document.getElementById("outputDiv");
+// ACHTUNG ULTIMATE vorher: let outputDiv = document.getElementById("outputDiv");
+let outputDiv = document.querySelector(".movie-list-container");
 
 // Button 1: Film eintragen
 function showInputField() {
