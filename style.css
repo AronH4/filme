@@ -90,9 +90,9 @@ button#randomButton {
 
 /* Kleinere Buttons für die Filmoptionen */
 .small-button img {
-    width: 20px;  /* Verkleinere das Bild */
-    height: 20px; /* Verkleinere das Bild */
-    padding: 5px; /* Füge ein wenig Abstand hinzu */
+    width: 30px;  /* Verkleinere das Bild */
+    height: 30px; /* Verkleinere das Bild */
+    padding: 0px; /* Füge ein wenig Abstand hinzu */
 }
 
 /* Optional: Wenn du die Button-Größe insgesamt beeinflussen willst */
