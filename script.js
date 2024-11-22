@@ -56,12 +56,17 @@ function showMovieList() {
         for (const id in movies) {
             const movie = movies[id];
             const watchedStyle = movie.watched ? "style='color: green;'" : "";
+            const eyeIcon = movie.watched ? "eye-slash-icon.png" : "eye-icon.png";
             const buttonText = movie.watched ? "Nicht gesehen" : "Gesehen";
             html += `
                 <li ${watchedStyle}>
                     ${movie.name}
-                    <button onclick="toggleWatched('${id}', ${movie.watched})">${buttonText}</button>
-                    <button onclick="deleteMovie('${id}')">Löschen</button>
+                    <button onclick="toggleWatched('${id}', ${movie.watched})">
+                        <img src="images/${eyeIcon}" alt="${buttonText}" style="width: 30px; height: 30px;">
+                    </button>
+                    <button onclick="deleteMovie('${id}')">
+                        <img src="images/trash-icon.png" alt="Löschen" style="width: 30px; height: 30px;">
+                    </button>
                 </li>
             `;
         }
