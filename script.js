@@ -13,6 +13,17 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
+//GIFS
+const gifs = [
+    'gifs/cat.gif',
+    'gifs/duck.gif',
+    'gifs/goldy.gif',
+    'gifs/otter.gif',
+    'gifs/pengu.gif',
+    'gifs/platy.gif',
+    'gifs/seal.gif'
+];
+
 // Globale Variable für das Output-Div
 let outputDiv = document.getElementById("outputDiv")
 
@@ -205,5 +216,12 @@ function suggestRandomMovie() {
 
         const randomMovie = unwatchedMovies[Math.floor(Math.random() * unwatchedMovies.length)];
         outputDiv.innerHTML = `Der Randomizer schlägt folgenden Film vor:<br><br><strong style="color: magenta; font-size: 1.2em;">${randomMovie.name}</strong>`;
+
+// Zufälliges GIF auswählen
+        const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+
+        // GIF anzeigen
+        const gifContainer = document.getElementById("gifContainer");
+        gifContainer.innerHTML = `<img src="${randomGif}" alt="GIF" style="width: 100%; height: auto; animation: loopGif 10s infinite;">`;
     });
 }
