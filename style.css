@@ -164,7 +164,7 @@ ul li .movie-title {
 /* Fixiere die Buttons unter dem Header */
 .fixed-header-buttons-active .buttons-container {
     position: fixed;
-    top: 200px; /* Platz für den Header */
+    top: 150px; /* Platz für den Header */
     left: 50%;
     transform: translateX(-50%);
     z-index: 999;
