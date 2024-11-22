@@ -20,6 +20,26 @@ h1 {
     text-align: center; /* Zentriert */
 }
 
+/* Stil für das Textfeld */
+input[type="text"] {
+    width: 300px;       /* Breite des Textfelds */
+    height: 40px;       /* Höhe des Textfelds */
+    font-size: 16px;    /* Schriftgröße */
+    padding: 5px;       /* Innenabstand */
+    border: 2px solid white; /* Weiße Umrandung */
+    border-radius: 5px; /* Abgerundete Ecken */
+    background-color: black; /* Schwarzer Hintergrund */
+    color: white;       /* Weiße Schrift */
+    margin-top: 20px;   /* Abstand nach oben */
+}
+
+/* Stil für das Textfeld beim Fokus (wenn der Benutzer klickt) */
+input[type="text"]:focus {
+    outline: none;          /* Entfernt den Standard-Fokusrahmen */
+    border-color: lime;     /* Neongrüne Umrandung beim Fokus */
+    box-shadow: 0px 0px 10px lime; /* Leuchteffekt beim Fokus */
+}
+
 /* Allgemeiner Stil für alle Buttons */
 button {
     padding: 20px 40px;
