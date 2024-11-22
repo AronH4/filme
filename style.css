@@ -70,8 +70,8 @@ button#addMovieButton {
 }
 
 button#showListButton {
-    color: orange;    /* Neonorange Schrift */
-    border-color: orange; /* Neonorange Umrandung */
+    color: yellow;    /* Neonorange Schrift */
+    border-color: yellow; /* Neonorange Umrandung */
 }
 
 button#randomButton {
@@ -171,7 +171,7 @@ ul li .movie-title {
 /* Fixiere die Buttons unter dem Header */
 .fixed-header-buttons-active .buttons-container {
     position: fixed;
-    top: 130px; /* Platz für den Header statt 115*/
+    top: 120px; /* Platz für den Header statt 115*/
     left: 50%;
     transform: translateX(-50%);
     z-index: 999;
