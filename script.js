@@ -18,12 +18,18 @@ let outputDiv = document.getElementById("outputDiv");
 
 // Button 1: Film eintragen
 function showInputField() {
+    removeFixedPosition();
     outputDiv.innerHTML = `
         <input id="movieInput" type="text" placeholder="Film eintragen">
         <button class="small-button" onclick="addMovie()">
         <img src="images/plus-icon.png" alt="Hinzufügen">
         </button>
     `;
+}
+
+// Funktion zum Entfernen der Fixierung der Header und Buttons
+function removeFixedPosition() {
+    document.body.classList.remove('fixed-header-buttons-active'); // Entferne die fixierte Position
 }
 
 // Funktion zum Hinzufügen eines Films
@@ -184,6 +190,7 @@ function deleteMovie(movieId) {
 
 // Button 3: Zufälligen Film vorschlagen
 function suggestRandomMovie() {
+    removeFixedPosition();
     db.ref("movies").once("value", (snapshot) => {
         const movies = snapshot.val();
         if (!movies) {
