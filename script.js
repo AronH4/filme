@@ -43,6 +43,13 @@ function addMovie() {
     movieInput.value = ""; // Das Textfeld wird geleert
 }
 
+// Event-Listener für die Enter-Taste
+document.getElementById("movieInput").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {  // Überprüft, ob Enter gedrückt wurde
+        addMovie();  // Ruft die Funktion addMovie() auf
+    }
+});
+
 // Button 2: Filmliste anzeigen
 function showMovieList() {
     db.ref("movies").once("value", (snapshot) => {
