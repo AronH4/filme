@@ -208,6 +208,7 @@ ul li .movie-title {
 
 /* Abstand unterhalb der Buttons */
 #outputDiv {
+    position: relative;
     margin-top: 60px; /* Großer Abstand zwischen Buttons und Text */
     text-align: center; /* Text zentrieren */
     z-index: 1;
