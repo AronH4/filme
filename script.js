@@ -30,11 +30,19 @@ function addMovie() {
         alert("Du hast leider keinen Film eingetragen :(");
         return;
     }
-    db.ref("movies").push({
-        name: movieInput,
+
+     // Füge den Film zur Datenbank hinzu
+    set(ref(db, `movies/${Date.now()}`), {
+        name: movieName,
         watched: false
+    })
+    .then(() => {
+        alert(`Der Film "${movieName}" wurde hinzugefügt!`);
+        movieInput.value = ""; // Leere das Textfeld
+    })
+    .catch((error) => {
+        alert("Fehler beim Hinzufügen des Films: " + error.message);
     });
-    alert(`Super! Der Film "${movieInput}" wurde hinzugefügt! Aron freut sich schon darauf :)`);
 }
 
 // Button 2: Filmliste anzeigen
