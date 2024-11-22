@@ -76,23 +76,60 @@ function showMovieList() {
             return;
         }
 
-        let html = "<ul>";
+        // Arrays für ungesehene und gesehene Filme
+        let unwatchedMovies = [];
+        let watchedMovies = [];
+
+        // Filme in die jeweiligen Arrays aufteilen
         for (const id in movies) {
             const movie = movies[id];
-            const watchedStyle = movie.watched ? "style='color: green; text-decoration: line-through;'" : "style='color: orange;'";
-            const eyeIcon = movie.watched ? "eye-slash-icon.png" : "eye-icon.png";
-            const buttonText = movie.watched ? "Nicht gesehen" : "Gesehen";
+            if (movie.watched) {
+                watchedMovies.push({ id, ...movie });
+            } else {
+                unwatchedMovies.push({ id, ...movie });
+            }
+        }
 
+        // Sortieren der ungesehenen und gesehenen Filme alphabetisch
+        unwatchedMovies.sort((a, b) => a.name.localeCompare(b.name)); // Ungesehene Filme sortieren
+        watchedMovies.sort((a, b) => a.name.localeCompare(b.name)); // Gesehene Filme sortieren
+
+        // HTML fü rdie Filmliste zusammenbauen
+        let html = "<ul>";
+
+        // Ungesehene Filme anzeigen
+        for (const movie of unwatchedMovies) {
+            const eyeIcon = "eye-icon.png";
             html += `
                 <li class="movie-item">
-                    <div class="movie-title" ${watchedStyle}>
+                    <div class="movie-title" style="color: orange;">
                         ${movie.name}
                     </div>
                     <div class="movie-buttons">
-                        <button class="small-button" onclick="toggleWatched('${id}', ${movie.watched})">
-                            <img src="images/${eyeIcon}" alt="${buttonText}">
+                        <button class="small-button" onclick="toggleWatched('${movie.id}', ${movie.watched})">
+                            <img src="images/${eyeIcon}" alt="Gesehen">
                         </button>
-                        <button class="small-button" onclick="deleteMovie('${id}')">
+                        <button class="small-button" onclick="deleteMovie('${movie.id}')">
+                            <img src="images/trash-icon.png" alt="Löschen">
+                        </button>
+                    </div>
+                </li>
+            `;
+        }
+
+        // Gesehene Filme anzeigen
+        for (const movie of watchedMovies) {
+            const eyeIcon = "eye-slash-icon.png";
+            html += `
+                <li class="movie-item">
+                    <div class="movie-title" style="color: green; text-decoration: line-through;">
+                        ${movie.name}
+                    </div>
+                    <div class="movie-buttons">
+                        <button class="small-button" onclick="toggleWatched('${movie.id}', ${movie.watched})">
+                            <img src="images/${eyeIcon}" alt="Nicht gesehen">
+                        </button>
+                        <button class="small-button" onclick="deleteMovie('${movie.id}')">
                             <img src="images/trash-icon.png" alt="Löschen">
                         </button>
                     </div>
