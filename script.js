@@ -25,26 +25,17 @@ function showInputField() {
 }
 
 function addMovie() {
-    const movieInput = document.getElementById('movieInput'); // Zugriff auf das Textfeld
-    const movieName = movieInput.value.trim(); // Hole und trimme den Inhalt
-
-    if (movieName === "") {
-        alert("Bitte einen Filmnamen eingeben!");
-        return; // Wenn leer, nicht fortfahren
+    const movieName = document.getElementById("movieInput").value;
+    if (movieName.trim() === "") {
+        alert("Du hast leider keinen Film eingegeben:(");
+        return;
     }
-
-    // Füge den Film zur Datenbank hinzu
-    set(ref(db, `movies/${Date.now()}`), {
+    const newMovieRef = db.ref("movies").push();
+    newMovieRef.set({
         name: movieName,
         watched: false
-    })
-    .then(() => {
-        alert(`Super! Der Film "${movieName}" wurde hinzugefügt! Aron freut sich schon darauf ;)`);
-        movieInput.value = ""; // Leere das Textfeld
-    })
-    .catch((error) => {
-        alert("Fehler beim Hinzufügen des Films: " + error.message);
     });
+    alert(`Super! Der Film "${movieName}" wurde hinzugefügt! Aron freut sich schon darauf ;)`);
 }
 
 // Button 2: Filmliste anzeigen
