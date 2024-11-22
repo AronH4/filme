@@ -61,10 +61,10 @@ function showMovieList() {
             html += `
                 <li ${watchedStyle}>
                     ${movie.name}
-                    <button onclick="toggleWatched('${id}', ${movie.watched})">
+                    <button class="small-button" onclick="toggleWatched('${id}', ${movie.watched})">
                         <img src="images/${eyeIcon}" alt="${buttonText}" style="width: 30px; height: 30px;">
                     </button>
-                    <button onclick="deleteMovie('${id}')">
+                    <button class="small-button" onclick="deleteMovie('${id}')">
                         <img src="images/trash-icon.png" alt="Löschen" style="width: 30px; height: 30px;">
                     </button>
                 </li>
