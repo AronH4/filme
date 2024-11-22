@@ -19,7 +19,7 @@ let outputDiv = document.getElementById("outputDiv");
 // Button 1: Film eintragen
 function showInputField() {
     outputDiv.innerHTML = `
-        <input id="movieInput" type="text" placeholder="Filmname eintragen">
+        <input id="movieInput" type="text" placeholder="Film eintragen">
         <button onclick="addMovie()">Hinzufügen</button>
     `;
 }
@@ -27,14 +27,14 @@ function showInputField() {
 function addMovie() {
     const movieInput = document.getElementById("movieInput").value;
     if (movieInput.trim() === "") {
-        alert("Bitte einen Filmnamen eingeben.");
+        alert("Du hast leider keinen Film eingetragen. Deshalb wurde auch kein Film zur Liste hinzugefügt.");
         return;
     }
     db.ref("movies").push({
         name: movieInput,
         watched: false
     });
-    alert(`Der Film "${movieInput}" wurde hinzugefügt.`);
+    alert(`Super!<br>Der Film "${movieInput}" wurde hinzugefügt!<br>Aron freut sich schon darauf :)`);
 }
 
 // Button 2: Filmliste anzeigen
@@ -42,7 +42,7 @@ function showMovieList() {
     db.ref("movies").once("value", (snapshot) => {
         const movies = snapshot.val();
         if (!movies) {
-            outputDiv.innerHTML = "Keine Filme vorhanden.";
+            outputDiv.innerHTML = "Du hast leider noch keinen Film zur Liste hinzugefügt :(.";
             return;
         }
 
@@ -50,7 +50,7 @@ function showMovieList() {
         for (const id in movies) {
             const movie = movies[id];
             const watchedStyle = movie.watched ? "style='color: green;'" : "";
-            const buttonText = movie.watched ? "Zurück auf ungesehen" : "Gesehen";
+            const buttonText = movie.watched ? "Nicht gesehen" : "Gesehen";
             html += `
                 <li ${watchedStyle}>
                     ${movie.name}
@@ -83,17 +83,17 @@ function suggestRandomMovie() {
     db.ref("movies").once("value", (snapshot) => {
         const movies = snapshot.val();
         if (!movies) {
-            outputDiv.innerHTML = "Keine Filme vorhanden.";
+            outputDiv.innerHTML = "Du hast leider noch keinen Film zur Liste hinzugefügt :(";
             return;
         }
 
         const unwatchedMovies = Object.values(movies).filter(movie => !movie.watched);
         if (unwatchedMovies.length === 0) {
-            outputDiv.innerHTML = "Keine ungesehenen Filme vorhanden.";
+            outputDiv.innerHTML = "Wir haben wohl schon alle Filme in der Liste gesehen! :O<br>Füge erst einen neuen Film hinzu!";
             return;
         }
 
         const randomMovie = unwatchedMovies[Math.floor(Math.random() * unwatchedMovies.length)];
-        outputDiv.innerHTML = `Wie wäre es mit: <strong>${randomMovie.name}</strong>?`;
+        outputDiv.innerHTML = `Der Randomizer schlägt folgenden Film vor: <strong>${randomMovie.name}</strong>?`;
     });
 }
