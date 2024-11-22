@@ -150,6 +150,12 @@ button:hover {
     border-color: #39FF14;
 }
 
+/* Stil für den Filmtitel, damit er rechtsbündig wird */
+ul li .movie-title {
+    flex-grow: 1;
+    text-align: right; /* Text rechtsbündig */
+}
+
 /* Abstand unterhalb der Buttons */
 #outputDiv {
     margin-top: 60px; /* Großer Abstand zwischen Buttons und Text */
