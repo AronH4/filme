@@ -79,18 +79,23 @@ function showMovieList() {
         let html = "<ul>";
         for (const id in movies) {
             const movie = movies[id];
-            const watchedStyle = movie.watched ? "style='color: green;'" : "";
+            const watchedStyle = movie.watched ? "style='color: green; text-decoration: line-through;'" : "style='color: orange;'";
             const eyeIcon = movie.watched ? "eye-slash-icon.png" : "eye-icon.png";
             const buttonText = movie.watched ? "Nicht gesehen" : "Gesehen";
+
             html += `
-                <li ${watchedStyle}>
-                    <span class="movie-title">${movie.name}</span> <!-- Filmtitel als eigenes Element -->
-                    <button class="small-button" onclick="toggleWatched('${id}', ${movie.watched})">
-                        <img src="images/${eyeIcon}" alt="${buttonText}">
-                    </button>
-                    <button class="small-button" onclick="deleteMovie('${id}')">
-                        <img src="images/trash-icon.png" alt="Löschen">
-                    </button>
+                <li class="movie-item">
+                    <div class="movie-title" ${watchedStyle}>
+                        ${movie.name}
+                    </div>
+                    <div class="movie-buttons">
+                        <button class="small-button" onclick="toggleWatched('${id}', ${movie.watched})">
+                            <img src="images/${eyeIcon}" alt="${buttonText}">
+                        </button>
+                        <button class="small-button" onclick="deleteMovie('${id}')">
+                            <img src="images/trash-icon.png" alt="Löschen">
+                        </button>
+                    </div>
                 </li>
             `;
         }
