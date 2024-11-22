@@ -1,4 +1,8 @@
 /* Hintergrund und Schriftfarbe der gesamten Seite */
+* {
+    padding: 0;
+    margin: 0;
+
 body {
     background-color: black; /* Schwarzer Hintergrund */
     color: white;            /* Weiße Schrift */
@@ -15,7 +19,7 @@ body {
 
 /* Titel-Stil */
 h1 {
-    margin-top: 30px;  /* Abstand nach oben */
+    margin-top: 0px;  /* Abstand nach oben */
     margin-bottom: 50px; /* Abstand nach unten zu den Buttons */
     text-align: center; /* Zentriert */
 }
