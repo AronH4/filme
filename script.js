@@ -136,10 +136,22 @@ function showMovieList() {
                 </li>
             `;
         }
-        html += "</ul>";
+        
+   // Trennstrich und Counter hinzufügen
+        html += `
+            </ul>
+            <hr>
+            <div class="movie-counter">
+                <p><strong>Filme insgesamt:</strong> ${unwatchedCount + watchedCount}</p>
+                <p><strong>Gesehene Filme:</strong> ${watchedCount}</p>
+                <p><strong>Ungesehene Filme:</strong> ${unwatchedCount}</p>
+            </div>
+        `;
+
         outputDiv.innerHTML = html;
     });
 }
+
 
 // Toggle-Funktion für gesehen/ungesehen
 function toggleWatched(movieId, isWatched) {
