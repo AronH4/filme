@@ -8,22 +8,22 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Start oben */
+    justify-content: center; /* Start oben */
     height: 100vh;
     box-sizing: border-box;
 }
 
 /* Titel-Stil */
 h1 {
-    margin-top: 20px;  /* Abstand nach oben */
-    margin-bottom: 40px; /* Abstand nach unten zu den Buttons */
+    margin-top: 30px;  /* Abstand nach oben */
+    margin-bottom: 50px; /* Abstand nach unten zu den Buttons */
     text-align: center; /* Zentriert */
 }
 
 /* Allgemeiner Stil für alle Buttons */
 button {
-    padding: 15px 30px;
-    font-size: 18px;
+    padding: 20px 40px;
+    font-size: 25px;
     border: 2px solid white; /* Weiße Umrandung */
     border-radius: 8px;
     cursor: pointer;
@@ -70,6 +70,6 @@ button#randomButton {
 
 /* Abstand unterhalb der Buttons */
 #outputDiv {
-    margin-top: 50px; /* Großer Abstand zwischen Buttons und Text */
+    margin-top: 60px; /* Großer Abstand zwischen Buttons und Text */
     text-align: center; /* Text zentrieren */
 }
