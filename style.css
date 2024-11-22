@@ -10,7 +10,6 @@ body {
     align-items: center;
     justify-content: center; /* Start oben */
     height: 100vh;
-    overflow: auto;
     box-sizing: border-box;
 }
 
@@ -25,7 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 10;
+    justify-content: flex-start;
 }
 
 /* Stil für den Titel (Hallo Luisa) */
@@ -174,8 +173,8 @@ ul li .movie-title {
 /* Filmtitel linksbündig */
 .movie-item .movie-title {
     text-align: left; /* Sicherstellen, dass der Titel links ist */
-    flex-grow: 0; /* Damit der Titel den verfügbaren Platz einnimmt */
-    width: 70%;
+    flex-grow: 1; /* Damit der Titel den verfügbaren Platz einnimmt */
+    margin-right: 10px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -190,6 +189,10 @@ ul li .movie-title {
 
 /* Abstand unterhalb der Buttons */
 #outputDiv {
-    margin-top: 60px; /* Großer Abstand zwischen Buttons und Text */
+    margin-top: 20px; /* Großer Abstand zwischen Buttons und Text */
+    width: 100%;
+    max-height: calc/100vh - 200px);
+    overflow-y: auto;
+    text-allign: center;
     text-align: center; /* Text zentrieren */
 }
