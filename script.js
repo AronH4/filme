@@ -43,11 +43,14 @@ function addMovie() {
     movieInput.value = ""; // Das Textfeld wird geleert
 }
 
-// Event-Listener für die Enter-Taste
-document.getElementById("movieInput").addEventListener("keyup", function(event) {
-    if (event.key === "Enter") {  // Überprüft, ob Enter gedrückt wurde
-        addMovie();  // Ruft die Funktion addMovie() auf
-    }
+// Sicherstellen, dass der Event-Listener erst nach dem Laden des HTMLs hinzugefügt wird
+document.addEventListener("DOMContentLoaded", function() {
+    // Event-Listener für das Textfeld, um auf die Enter-Taste zu reagieren
+    document.getElementById("movieInput").addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {  // Überprüft, ob die Enter-Taste gedrückt wurde
+            addMovie();  // Ruft die Funktion addMovie() auf, um den Film hinzuzufügen
+        }
+    });
 });
 
 // Button 2: Filmliste anzeigen
