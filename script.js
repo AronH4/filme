@@ -26,21 +26,45 @@ function showInputField() {
     `;
 }
 
+// Funktion zum Hinzufügen eines Films
 function addMovie() {
-    const movieName = document.getElementById("movieInput").value;
-    if (movieName.trim() === "") {
+    const movieName = document.getElementById("movieInput").value.trim();
+    
+    // Überprüfen, ob das Textfeld leer ist
+    if (movieName === "") {
         alert("Du hast leider keinen Film eingegeben :(");
         return;
     }
-    const newMovieRef = db.ref("movies").push();
-    newMovieRef.set({
-        name: movieName,
-        watched: false
-    });
-    alert(`Super! Der Film "${movieName}" wurde hinzugefügt! Aron freut sich schon darauf ;)`);
+    
+    // Überprüfen, ob der Film bereits in der Datenbank existiert
+    db.ref("movies").once("value", (snapshot) => {
+        const movies = snapshot.val();
+        let movieExists = false;
+        
+        // Wenn Filme existieren, durch alle Filme iterieren
+        for (const id in movies) {
+            if (movies[id].name.toLowerCase() === movieName.toLowerCase()) {
+                movieExists = true;
+                break;
+            }
+        }
 
-    // Textfeld nach dem Hinzufügen des Films leeren
-    movieInput.value = ""; // Das Textfeld wird geleert
+        // Wenn der Film bereits existiert
+        if (movieExists) {
+            alert(`Der Film "${movieName}" ist bereits in deiner Liste!`);
+        } else {
+            // Wenn der Film nicht existiert, Film hinzufügen
+            const newMovieRef = db.ref("movies").push();
+            newMovieRef.set({
+                name: movieName,
+                watched: false
+            });
+            alert(`Super! Der Film "${movieName}" wurde hinzugefügt! Aron freut sich schon darauf ;)`);
+        }
+    });
+    
+    // Textfeld nach dem Hinzufügen leeren
+    document.getElementById("movieInput").value = '';
 }
 
 // Button 2: Filmliste anzeigen
