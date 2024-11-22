@@ -52,17 +52,10 @@ function showMovieList() {
             return;
         }
 
-        // Filme alphabetisch sortieren, zuerst ungesehen
-        const unsortedMovies = Object.values(movies);
-        const unsorted = unsortedMovies.filter(movie => !movie.watched).sort((a, b) => a.name.localeCompare(b.name));
-        const sorted = unsortedMovies.filter(movie => movie.watched).sort((a, b) => a.name.localeCompare(b.name));
-
-        const allMovies = [...unsorted, ...sorted]; // Kombiniere ungesehene und gesehene Filme
-
         let html = "<ul>";
         for (const id in movies) {
             const movie = movies[id];
-            const watchedStyle = movie.watched ? "style='color: green; text-decoration: line-thorugh;'" : "style='color: orange;'";
+            const watchedStyle = movie.watched ? "style='color: green;'" : "";
             const eyeIcon = movie.watched ? "eye-slash-icon.png" : "eye-icon.png";
             const buttonText = movie.watched ? "Nicht gesehen" : "Gesehen";
             html += `
@@ -78,16 +71,6 @@ function showMovieList() {
             `;
         }
         html += "</ul>";
-
-         // Anzeige der Filmanzahl
-        const totalMovies = unsortedMovies.length;
-        const watchedMovies = sorted.length;
-        const unwatchedMovies = unsorted.length;
-        html += `
-            <hr>
-            <p>Insgesamt: ${totalMovies} Filme</p>
-            <p>Gesehen: ${watchedMovies} | Ungesehen: ${unwatchedMovies}</p>
-        `;
         outputDiv.innerHTML = html;
     });
 }

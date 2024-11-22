@@ -125,37 +125,6 @@ ul li .movie-title {
     flex-grow: 1; /* Der Titel kann sich ausdehnen, um den freien Raum zu füllen */
 }
 
-/* Container für das Textfeld und den Hinzufügen-Button */
-.input-container {
-    display: flex;
-    flex-direction: column; /* Stellt sicher, dass das Textfeld und der Button untereinander stehen */
-    align-items: center; /* Zentriert die Elemente horizontal */
-    justify-content: center; /* Zentriert die Elemente vertikal innerhalb des Containers */
-}
-
-/* Hinzufügen-Button zentrieren */
-#movieInput {
-    width: 100%;
-    padding: 10px;
-}
-
-button {
-    padding: 10px;
-    width: 100%; /* Stellt sicher, dass der Button die gleiche Breite wie das Textfeld hat */
-}
-
-/* Button Hover-Effekt: Neongrün */
-button:hover {
-    background-color: #39FF14; /* Neongrün */
-    border-color: #39FF14;
-}
-
-/* Stil für den Filmtitel, damit er rechtsbündig wird */
-ul li .movie-title {
-    flex-grow: 1;
-    text-align: right; /* Text rechtsbündig */
-}
-
 /* Abstand unterhalb der Buttons */
 #outputDiv {
     margin-top: 60px; /* Großer Abstand zwischen Buttons und Text */
