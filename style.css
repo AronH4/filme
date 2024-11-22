@@ -147,6 +147,23 @@ ul li .movie-title {
     gap: 10px; /* Abstand zwischen den Buttons */
 }
 
+/* Fixiere den Header, wenn die Klasse 'fixed-header' hinzugefügt wird */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black; /* Schwarzer Hintergrund */
+    z-index: 1000; /* Damit der Header über anderen Elementen liegt */
+    padding: 10px 0; /* Optional, um etwas Abstand zu schaffen */
+    text-align: center; /* Zentriert den Header */
+}
+
+/* Gib dem Rest der Seite nach dem fixierten Header einen Abstand */
+body.fixed-header-active {
+    padding-top: 80px; /* Verhindert, dass der Inhalt unter den fixierten Header rutscht */
+}
+
 /* Abstand unterhalb der Buttons */
 #outputDiv {
     margin-top: 60px; /* Großer Abstand zwischen Buttons und Text */
