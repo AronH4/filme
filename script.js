@@ -27,14 +27,14 @@ function showInputField() {
 function addMovie() {
     const movieInput = document.getElementById("movieInput").value;
     if (movieInput.trim() === "") {
-        alert("Du hast leider keinen Film eingetragen. Deshalb wurde auch kein Film zur Liste hinzugefügt.");
+        alert("Du hast leider keinen Film eingetragen :(");
         return;
     }
     db.ref("movies").push({
         name: movieInput,
         watched: false
     });
-    alert(`Super!<br>Der Film "${movieInput}" wurde hinzugefügt!<br>Aron freut sich schon darauf :)`);
+    alert(`Super! Der Film "${movieInput}" wurde hinzugefügt! Aron freut sich schon darauf :)`);
 }
 
 // Button 2: Filmliste anzeigen
@@ -42,7 +42,7 @@ function showMovieList() {
     db.ref("movies").once("value", (snapshot) => {
         const movies = snapshot.val();
         if (!movies) {
-            outputDiv.innerHTML = "Du hast leider noch keinen Film zur Liste hinzugefügt :(.";
+            outputDiv.innerHTML = "Du hast leider noch keinen Film zur Liste hinzugefügt :(";
             return;
         }
 
@@ -89,7 +89,7 @@ function suggestRandomMovie() {
 
         const unwatchedMovies = Object.values(movies).filter(movie => !movie.watched);
         if (unwatchedMovies.length === 0) {
-            outputDiv.innerHTML = "Wir haben wohl schon alle Filme in der Liste gesehen! :O<br>Füge erst einen neuen Film hinzu!";
+            outputDiv.innerHTML = "Wir haben wohl schon alle Filme in der Liste gesehen! :O Füge erst einen neuen Film hinzu!";
             return;
         }
 
