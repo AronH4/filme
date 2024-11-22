@@ -14,8 +14,7 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
 // Globale Variable für das Output-Div
-// ACHTUNG ULTIMATE vorher: let outputDiv = document.getElementById("outputDiv");
-let outputDiv = document.querySelector(".movie-list-container");
+let outputDiv = document.getElementById("outputDiv")
 
 // Button 1: Film eintragen
 function showInputField() {
@@ -78,9 +77,6 @@ function addMovie() {
 function showMovieList() {
  // Füge die fixierte Klasse zum Header hinzu
     document.body.classList.add('fixed-header-buttons-active'); 
-
-    //ACHTUNG: Finde den Container für die Filmliste
-    const movieListContainer = doucment.querySelector('.movie-list-container');
     
     db.ref("movies").once("value", (snapshot) => {
         const movies = snapshot.val();
@@ -167,8 +163,7 @@ function showMovieList() {
             </div>
         `;
 
-        // ACHTUNG 2: outputDiv.innerHTML = html;
-        movieListContainer.innerHTML = html;
+        outputDiv.innerHTML = html;
     });
 }
 
