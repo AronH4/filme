@@ -183,7 +183,7 @@ ul li .movie-title {
 
 /* ACHTUNG NEU */
 .movie-list-active #outputDiv ul {
-    margin-top: 160px; /* Platz für Header (50px) + Buttons (110px) */
+    margin-top: 300px; /* Platz für Header (50px) + Buttons (110px) */
     padding: 0;
     list-style-type: none; /* Entferne die Standard-Punkte der Liste */
     max-height: calc(100vh - 210px); /* Höhe des Fensters minus Header + Buttons */
