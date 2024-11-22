@@ -77,6 +77,9 @@ function addMovie() {
 function showMovieList() {
  // Füge die fixierte Klasse zum Header hinzu
     document.body.classList.add('fixed-header-buttons-active'); 
+
+    //ACHTUNG: Finde den Container für die Filmliste
+    const movieListContainer = doucment.querySelector('.movie-list-container');
     
     db.ref("movies").once("value", (snapshot) => {
         const movies = snapshot.val();
@@ -163,7 +166,8 @@ function showMovieList() {
             </div>
         `;
 
-        outputDiv.innerHTML = html;
+        // ACHTUNG 2: outputDiv.innerHTML = html;
+        movieListContainer.innerHTML = html;
     });
 }
 
