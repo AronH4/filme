@@ -94,6 +94,6 @@ function suggestRandomMovie() {
         }
 
         const randomMovie = unwatchedMovies[Math.floor(Math.random() * unwatchedMovies.length)];
-        outputDiv.innerHTML = `Der Randomizer schlägt folgenden Film vor: <strong>${randomMovie.name}</strong>?`;
+        outputDiv.innerHTML = `Der Randomizer schlägt folgenden Film vor:<br><strong style="color: magenta; font-size: 1.2em;">${randomMovie.name}</strong>`;
     });
 }
