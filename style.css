@@ -175,7 +175,7 @@ ul li .movie-title {
     background-color: black;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8); /* Schatten nach unten */
     border-bottom: 2px solid gray; /* Optionale graue Linie */
-    padding: 10px;
+    /*padding: 10px;
     border-radius: 5px; /* Optional: abgerundete Ecken */
 }
 
