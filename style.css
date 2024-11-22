@@ -17,10 +17,14 @@ body {
 /* Container für den Header und die Buttons */
 .header-container {
     width: 100%;
+    padding-top: 50px;
+    padding-botom: 20px;
     text-align: center;
-    padding: 20px;
     background-color: #333; /* Dunkler Hintergrund */
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     z-index: 10;
 }
 
@@ -49,6 +53,7 @@ h1 {
     flex-grow: 1;
     padding: 20px;
     width: 100%;
+    max-height: calc(100vh - 150px);
     overflow-y: auto; /* Ermöglicht Scrollen bei Bedarf */
 }
 
@@ -169,7 +174,11 @@ ul li .movie-title {
 /* Filmtitel linksbündig */
 .movie-item .movie-title {
     text-align: left; /* Sicherstellen, dass der Titel links ist */
-    flex-grow: 1; /* Damit der Titel den verfügbaren Platz einnimmt */
+    flex-grow: 0; /* Damit der Titel den verfügbaren Platz einnimmt */
+    width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Die Buttons (Icons) rechtsbündig */
