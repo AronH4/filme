@@ -158,14 +158,6 @@ function showMovieList() {
         // Trennstrich und Counter hinzufügen
         html += `
             </ul>
-            <div class="bottom-section">
-            <hr>
-            <div class="movie-counter">
-                <p><strong>Filme insgesamt:</strong> ${unwatchedCount + watchedCount}</p>
-                <p><strong>Gesehene Filme:</strong> ${watchedCount}</p>
-                <p><strong>Ungesehene Filme:</strong> ${unwatchedCount}</p>
-            </div>
-            </div>
         `;
 
         outputDiv.innerHTML = html;
