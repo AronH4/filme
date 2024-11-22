@@ -158,7 +158,7 @@ ul li .movie-title {
     padding: 100px 0;
     width: 100%; /* Stelle sicher, dass der Header die gesamte Breite einnimmt */
     text-align: center;
-    z-index: 1000; /* Sicherstellen, dass der Header oben bleibt */
+    z-index: 999; /* Sicherstellen, dass der Header oben bleibt */
     opacity: 1;
     box-shadow: 0px 4px 10px rgb(0, 0, 0, 0.8);
     /* border-bottom: 2px solid gray; */
@@ -170,7 +170,7 @@ ul li .movie-title {
     top: 150px; /* Platz für den Header */
     left: 50%;
     transform: translateX(-50%);
-    z-index: 999;
+    z-index: 1000;
     /*TESTVERSUCH*/
     overflow: hidden;
     background-color: black;
