@@ -10,14 +10,46 @@ body {
     align-items: center;
     justify-content: center; /* Start oben */
     height: 100vh;
+    overflow: auto;
     box-sizing: border-box;
 }
 
-/* Titel-Stil */
+/* Container für den Header und die Buttons */
+.header-container {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #333; /* Dunkler Hintergrund */
+    color: white;
+    z-index: 10;
+}
+
+/* Stil für den Titel (Hallo Luisa) */
 h1 {
-    margin-top: 30px;  /* Abstand nach oben */
-    margin-bottom: 50px; /* Abstand nach unten zu den Buttons */
-    text-align: center; /* Zentriert */
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Container für die Buttons */
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttons-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Sicherstellen, dass der Hauptinhalt nach dem Header beginnt */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    width: 100%;
+    overflow-y: auto; /* Ermöglicht Scrollen bei Bedarf */
 }
 
 /* Stil für das Textfeld */
