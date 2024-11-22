@@ -12,11 +12,15 @@
 </head>
 <body>
     <h1>Hallo Luisa!<br>Willkommen in unserem Filme-Paradies</h1>
-    <div id="buttonContainer">
-        <button onclick="showInputField()">Neuer Film</button>
-        <button onclick="showMovieList()">Filmliste</button>
-        <button onclick="suggestRandomMovie()">Randomizer</button>
+ <div class="buttons-container">
+    <!-- Erste Zeile: Button 1 und 2 nebeneinander -->
+    <div class="buttons-row">
+        <button id="addMovieButton" onclick="showInputField()">Neuer Film</button>
+        <button id="showListButton" onclick="showMovieList()">Filmliste</button>
     </div>
+    <!-- Zweite Zeile: Button 3 zentral darunter -->
+    <button id="randomButton" onclick="suggestRandomMovie()">Randomizer</button>
+</div>
     <div id="outputDiv"></div>
 
     <script src="script.js"></script>
