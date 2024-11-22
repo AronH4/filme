@@ -88,6 +88,19 @@ button#randomButton {
     margin-bottom: 20px; /* Abstand zwischen den Button-Reihen */
 }
 
+/* Kleinere Buttons für die Filmoptionen */
+.small-button img {
+    width: 20px;  /* Verkleinere das Bild */
+    height: 20px; /* Verkleinere das Bild */
+    padding: 5px; /* Füge ein wenig Abstand hinzu */
+}
+
+/* Optional: Wenn du die Button-Größe insgesamt beeinflussen willst */
+.small-button {
+    padding: 0; /* Entferne den inneren Abstand, um den Button kompakter zu machen */
+    border: none; /* Entferne die Ränder, falls gewünscht */
+}
+
 /* Abstand unterhalb der Buttons */
 #outputDiv {
     margin-top: 60px; /* Großer Abstand zwischen Buttons und Text */
