@@ -171,7 +171,7 @@ ul li .movie-title {
 /* Fixiere die Buttons unter dem Header */
 .fixed-header-buttons-active .buttons-container {
     position: fixed;
-    top: 120px; /* Platz für den Header */
+    top: 115px; /* Platz für den Header */
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
@@ -200,7 +200,7 @@ ul li .movie-title {
 }
 
 .movie-list-active #outputDiv ul {
-    margin-top: 650px; /* Platz für Header (50px) + Buttons (110px) */
+    margin-top: 620px; /* Platz für Header (50px) + Buttons (110px) */
     /*padding: 0; */
     /*list-style-type: none; /* Entferne die Standard-Punkte der Liste */
     max-height: calc(100vh - 210px); /* Höhe des Fensters minus Header + Buttons */
