@@ -26,6 +26,21 @@ const gifs = [
 // Globale Variable für das Output-Div
 let outputDiv = document.getElementById("outputDiv")
 
+//ACHTUNG LÖSCHBAR BIS BUTTON 1
+document.getElementById('secretAreaButton').addEventListener('click', showEasterEggImage);
+
+function showEasterEggImage() {
+    const easterEggImage = document.createElement('img');
+    easterEggImage.src = 'images/easteregg.png'; // Pfad zum Bild
+    easterEggImage.alt = 'Easter Egg';
+    easterEggImage.style.position = 'fixed';
+    easterEggImage.style.top = '50%';
+    easterEggImage.style.left = '50%';
+    easterEggImage.style.transform = 'translate(-50%, -50%)';
+    easterEggImage.style.zIndex = '9999';
+    document.body.appendChild(easterEggImage);
+}
+
 // Button 1: Film eintragen
 function showInputField() {
    
