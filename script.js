@@ -21,7 +21,7 @@ function showInputField() {
     outputDiv.innerHTML = `
         <input id="movieInput" type="text" placeholder="Film eintragen">
         <button class="small-button" onclick="addMovie()">
-        <img src="images/plus-icon.png" alt="Hinzufügen" style="width: 30px; height; 30px;">
+        <img src="images/plus-icon.png" alt="Hinzufügen">
         </button>
     `;
 }
@@ -60,12 +60,12 @@ function showMovieList() {
             const buttonText = movie.watched ? "Nicht gesehen" : "Gesehen";
             html += `
                 <li ${watchedStyle}>
-                    ${movie.name}
+                    <span class="movie-title">${movie.name}</span> <!-- Filmtitel als eigenes Element -->
                     <button class="small-button" onclick="toggleWatched('${id}', ${movie.watched})">
-                        <img src="images/${eyeIcon}" alt="${buttonText}" style="width: 30px; height: 30px;">
+                        <img src="images/${eyeIcon}" alt="${buttonText}">
                     </button>
                     <button class="small-button" onclick="deleteMovie('${id}')">
-                        <img src="images/trash-icon.png" alt="Löschen" style="width: 30px; height: 30px;">
+                        <img src="images/trash-icon.png" alt="Löschen">
                     </button>
                 </li>
             `;
