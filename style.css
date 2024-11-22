@@ -181,6 +181,11 @@ ul li .movie-title {
     z-index: 1001; /* Buttons über allen anderen Inhalten */
 }
 
+/* ACHTUNG NEU */
+.movie-list-active #outputDiv {
+    margin-top: 160px; /* Platz für Header (50px) + Buttons (110px) */
+}
+
 /* Abstand unterhalb der Buttons */
 #outputDiv {
     margin-top: 60px; /* Großer Abstand zwischen Buttons und Text */
