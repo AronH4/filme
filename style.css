@@ -155,7 +155,7 @@ ul li .movie-title {
     transform: translateX(-50%);
     background-color: black; /* Schwarzer Hintergrund für den Header */
     color: white;
-    padding: 30px 0;
+    padding: 10px 0;
     width: 100%; /* Stelle sicher, dass der Header die gesamte Breite einnimmt */
     text-align: center;
     z-index: 999; /* Sicherstellen, dass der Header oben bleibt */
