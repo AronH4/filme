@@ -27,7 +27,7 @@ function showInputField() {
 function addMovie() {
     const movieName = document.getElementById("movieInput").value;
     if (movieName.trim() === "") {
-        alert("Du hast leider keinen Film eingegeben:(");
+        alert("Du hast leider keinen Film eingegeben :(");
         return;
     }
     const newMovieRef = db.ref("movies").push();
@@ -36,6 +36,9 @@ function addMovie() {
         watched: false
     });
     alert(`Super! Der Film "${movieName}" wurde hinzugefügt! Aron freut sich schon darauf ;)`);
+
+    // Textfeld nach dem Hinzufügen des Films leeren
+    movieInput.value = ""; // Das Textfeld wird geleert
 }
 
 // Button 2: Filmliste anzeigen
