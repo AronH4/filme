@@ -18,7 +18,7 @@ let outputDiv = document.getElementById("outputDiv")
 
 // Button 1: Film eintragen
 function showInputField() {
-    //ACHTUNG NEU
+   
     document.body.classList.remove('movie-list-active');
     
     removeFixedPosition();
@@ -79,7 +79,6 @@ function addMovie() {
 // Button 2: Filmliste anzeigen
 function showMovieList() {
  // Füge die fixierte Klasse zum Header hinzu
-// ACHTUNG: Neu ist hier nur 'movie-list-active'
     document.body.classList.add('fixed-header-buttons-active', 'movie-list-active'); 
     
     db.ref("movies").once("value", (snapshot) => {
@@ -174,7 +173,6 @@ function showMovieList() {
 // Funktion zum Verlassen der Filmliste (z.B. zurück zum Start)
 function hideMovieList() {
     // Entferne die fixierte Klasse vom Header
-    // ACHTUNG nur 'movie-list-active' ist neu
     document.body.classList.remove('fixed-header-buttons-active', 'movie-list-active');
     outputDiv.innerHTML = ''; // Optional: Löscht den Inhalt der Filmliste, wenn du zurück gehst
 }
@@ -195,7 +193,6 @@ function deleteMovie(movieId) {
 
 // Button 3: Zufälligen Film vorschlagen
 function suggestRandomMovie() {
-    // ACHTUNG neu
     document.body.classList.remove('movie-list-active');
     
     removeFixedPosition();
