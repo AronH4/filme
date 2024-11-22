@@ -2,64 +2,74 @@
 body {
     background-color: black; /* Schwarzer Hintergrund */
     color: white;            /* Weiße Schrift */
-    font-family: Arial, sans-serif; /* Lesbare Schriftart */
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh; /* Füllt den ganzen Bildschirm */
+    justify-content: flex-start; /* Start oben */
+    height: 100vh;
     box-sizing: border-box;
+}
+
+/* Titel-Stil */
+h1 {
+    margin-top: 20px;  /* Abstand nach oben */
+    margin-bottom: 40px; /* Abstand nach unten zu den Buttons */
+    text-align: center; /* Zentriert */
 }
 
 /* Allgemeiner Stil für alle Buttons */
 button {
-    padding: 15px 30px;      /* Größere Buttons */
-    font-size: 18px;         /* Größere Schrift */
+    padding: 15px 30px;
+    font-size: 18px;
     border: 2px solid white; /* Weiße Umrandung */
-    border-radius: 8px;      /* Abgerundete Ecken */
-    cursor: pointer;         /* Zeiger bei Hover */
-    margin: 10px;            /* Abstand zwischen den Buttons */
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+    background-color: black; /* Schwarzer Hintergrund */
+    color: white;            /* Weiße Schrift */
     transition: transform 0.2s, box-shadow 0.2s; /* Animationen für Hover */
 }
 
 /* Hover-Effekte für alle Buttons */
 button:hover {
-    transform: scale(1.1); /* Vergrößert den Button leicht */
-    box-shadow: 0px 0px 10px white; /* Leichter Leuchteffekt */
+    transform: scale(1.1); /* Leichte Vergrößerung */
+    box-shadow: 0px 0px 10px white; /* Leuchteffekt */
 }
 
-/* Stil für den ersten Button (Film hinzufügen) */
+/* Spezieller Stil für große Buttons */
 button#addMovieButton {
-    background-color: black;    /* Schwarzer Hintergrund */
-    color: lime;                /* Neongrüne Schrift */
-    border-color: lime;         /* Neongrüne Umrandung */
+    color: lime;      /* Neongrüne Schrift */
+    border-color: lime; /* Neongrüne Umrandung */
 }
 
-/* Stil für den zweiten Button (Filmliste anzeigen) */
 button#showListButton {
-    background-color: black;    /* Schwarzer Hintergrund */
-    color: orange;              /* Neonorange Schrift */
-    border-color: orange;       /* Neonorange Umrandung */
+    color: orange;    /* Neonorange Schrift */
+    border-color: orange; /* Neonorange Umrandung */
 }
 
-/* Stil für den dritten Button (Zufälligen Film vorschlagen) */
 button#randomButton {
-    background-color: black;    /* Schwarzer Hintergrund */
-    color: magenta;             /* Neonpink Schrift */
-    border-color: magenta;      /* Neonpink Umrandung */
+    color: magenta;   /* Neonpink Schrift */
+    border-color: magenta; /* Neonpink Umrandung */
 }
 
-/* Anordnung der Buttons */
+/* Button-Reihen: Für Anordnung nebeneinander */
 .buttons-container {
     display: flex;
-    flex-direction: column; /* Buttons in einer Spalte */
-    align-items: center;    /* Zentriert innerhalb der Seite */
+    flex-direction: column;
+    align-items: center;
 }
 
 .buttons-row {
-    display: flex;          /* Buttons nebeneinander */
+    display: flex; 
     justify-content: center;
-    margin-bottom: 20px;    /* Abstand zur nächsten Reihe */
+    margin-bottom: 20px; /* Abstand zwischen den Button-Reihen */
+}
+
+/* Abstand unterhalb der Buttons */
+#outputDiv {
+    margin-top: 50px; /* Großer Abstand zwischen Buttons und Text */
+    text-align: center; /* Text zentrieren */
 }
